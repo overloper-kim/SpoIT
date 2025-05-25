@@ -1,0 +1,41 @@
+.inner-header {
+  display: flex;
+  flex-direction: row;
+  margin: 0rem 3rem;
+  align-items: center;
+}
+
+.header-items {
+  list-style: none;
+  padding: 0px 2.5rem;
+  vertical-align: middle;
+}
+
+header {
+  padding: 2rem 0rem;
+  background-color: #f4f4f4;
+}
+
+.header-logo {
+  width: 18rem;
+}
+
+.inner-header > nav > ul {
+  display: flex;
+  margin: 0%;
+}
+
+.header-items > a {
+  color: #404040;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.header-items > a:hover {
+  color: #5409da;
+  transform: scale(1, 1.5);
+}
+nav {
+  display: flex;
+}
