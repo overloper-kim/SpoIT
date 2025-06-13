@@ -63,13 +63,15 @@ body {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  padding: 5px 10px;
-  transition: color 0.3s ease;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
 }
 
 .main-menu a:hover,
 .main-menu a.active {
   color: #007bff;
+  background-color: #f8f9fa;
 }
 
 /* 4. 헤더 우측 영역 */
@@ -110,42 +112,73 @@ body {
 .search-btn:hover {
   color: #007bff;
 }
-/*서브메뉴 스타일*/
+
+/* 서브메뉴 스타일 */
+.has-submenu {
+  position: relative;
+}
+
 .sub-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  list-style: none;
-  margin: 5px 0 0;
-  min-width: 150px;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  margin-top: 8px;
 }
 
-.category-item:hover .sub-menu {
+.has-submenu:hover .sub-menu {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sub-menu.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sub-menu li {
-  margin: 0;
-}
-
-.sub-menu li a {
   display: block;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 4px;
-  background: none;
+  width: 100%;
 }
 
-.sub-menu li a:hover {
-  background-color: #f5f5f5;
+.sub-menu a {
+  display: block;
+  padding: 12px 20px;
+  font-size: 0.9em;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.sub-menu a:hover {
+  background-color: #f8f9fa;
   color: #007bff;
+}
+
+.sub-menu li:last-child a {
+  border-bottom: none;
+}
+
+/* 스포츠 메뉴 아이콘 */
+.sports-menu::after {
+  content: '▼';
+  font-size: 0.7em;
+  margin-left: 5px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.sports-menu.active::after {
+  transform: rotate(180deg);
 }
 
 /* 6. 로그인 영역 */
@@ -297,7 +330,7 @@ body {
 .category {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px 20px;
+  padding: 20px;
 }
 
 .category-list {
@@ -306,6 +339,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+  justify-content: center;
 }
 
 .category-item {
@@ -326,113 +360,29 @@ body {
 
 .category-item a:hover {
   background-color: #f5f5f5;
+  border-color: #007bff;
+  color: #007bff;
 }
 
 .category-item a.active {
-  background-color: #222;
+  background-color: #007bff;
   color: white;
-  border-color: #222;
-}
-
-/* 예매오픈 섹션 카드형 레이아웃 */
-.ticket-open {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.ticket-open h2 {
-  font-size: 2rem;
-  margin-bottom: 24px;
-}
-
-.game-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.game-card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  padding: 32px 24px;
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: box-shadow 0.2s;
-}
-
-.game-card:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-
-.teams {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.teams img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  background: #f8f8f8;
-  border-radius: 8px;
-}
-
-.teams span {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #888;
-}
-
-.info {
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.datetime {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.location {
-  font-size: 0.95rem;
-  color: #666;
-}
-
-.reservation {
-  margin-top: 12px;
-}
-
-.reserve-time {
-  display: inline-block;
-  background: #f3f3f3;
-  color: #333;
-  font-weight: bold;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-color: #007bff;
 }
 
 /* 예매오픈 제목 스타일 */
 .ticket-open-title {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px 20px;
+  margin: 40px auto 20px;
+  padding: 0 20px;
 }
 
 .ticket-open-title h2 {
   font-size: 2rem;
+  color: #333;
   margin: 0;
 }
+
 /* 광고 배너 스타일 */
 .ad-banner {
   max-width: 1200px;

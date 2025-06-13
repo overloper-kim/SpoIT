@@ -67,4 +67,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 자동 슬라이드 시작
     startSlideInterval();
+});
+
+// 서브메뉴 기능
+document.addEventListener('DOMContentLoaded', function() {
+    const sportsMenus = document.querySelectorAll('.sports-menu');
+    
+    sportsMenus.forEach(menu => {
+        menu.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 다른 모든 서브메뉴 닫기
+            document.querySelectorAll('.sub-menu.active').forEach(submenu => {
+                if (submenu !== this.nextElementSibling) {
+                    submenu.classList.remove('active');
+                }
+            });
+            
+            // 클릭한 메뉴의 서브메뉴 토글
+            const submenu = this.nextElementSibling;
+            submenu.classList.toggle('active');
+            
+            // 메뉴 활성화 상태 토글
+            this.classList.toggle('active');
+        });
+    });
+    
+    // 서브메뉴 외부 클릭 시 닫기
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.has-submenu')) {
+            document.querySelectorAll('.sub-menu.active').forEach(submenu => {
+                submenu.classList.remove('active');
+            });
+            document.querySelectorAll('.sports-menu.active').forEach(menu => {
+                menu.classList.remove('active');
+            });
+        }
+    });
 }); 
