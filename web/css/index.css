@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@100..900&display=swap");
+
+html,
+body {
+  font-size: 62.5%;
+  line-height: 1.285;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  margin: 0%;
+}

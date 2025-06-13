@@ -1,0 +1,30 @@
+
+.section-Checkin-button {
+	border: 1px solid #5409da;
+	background-color: #5409da;
+	color: #fff;
+	
+	
+}
+
+.section-landing {
+	padding: 80px 20px;
+	min-height: 600px;
+	max-width: 1200px; margin: 0;
+	
+}
+
+.section-h2 {
+	font-size: 3.5rem
+
+}
+
+.section-p {
+	font-size: 1.5rem
+}
+
+.section-landing-img {
+float: right;
+  width: 600px;
+  height: 800px;
+}
