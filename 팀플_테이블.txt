@@ -1,101 +1,101 @@
-#유저 테이블, 컬럼 7개
+--유저 테이블, 컬럼 7개
 CREATE TABLE users ( 
-    user_key INT PRIMARY KEY AUTO_INCREMENT, #유저 고유 key, 프라이머리키, 자동으로 순서대로 부여
-    userID VARCHAR(50) NOT NULL UNIQUE, #유저가 설정한 id
-    password VARCHAR(255) NOT NULL, #유저의 비밀번호
-    userName VARCHAR(50) NOT NULL, #유저 이름
-    userEmail VARCHAR(100) NOT NULL UNIQUE, #유저 이메일
-    userPhone VARCHAR(20), #유저 전화번호
-    userJoinDate DATETIME DEFAULT CURRENT_TIMESTAMP #유저 회원가입 시각
+    user_key INT PRIMARY KEY AUTO_INCREMENT, --유저 고유 key, 프라이머리키, 자동으로 순서대로 부여
+    userID VARCHAR(50) NOT NULL UNIQUE, --유저가 설정한 id
+    password VARCHAR(255) NOT NULL, --유저의 비밀번호
+    userName VARCHAR(50) NOT NULL, --유저 이름
+    userEmail VARCHAR(100) NOT NULL UNIQUE, --유저 이메일
+    userPhone VARCHAR(20), --유저 전화번호
+    userJoinDate DATETIME DEFAULT CURRENT_TIMESTAMP --유저 회원가입 시각
 );
 
 insert into users values(?, ?, ?, ?, ?, ?, ?);
-delete from users where user_id=?;
+delete from users where userID=?;
 
 
 
-#경기 테이블
+--경기 테이블
 CREATE TABLE games (
-    game_id INT PRIMARY KEY AUTO_INCREMENT, #경기 고유 ID, 자동으로 순서대로 부여
-    sport_type VARCHAR(20) NOT NULL, #경기 종목 예: 축구, 야구, 농구
-    team1 VARCHAR(50) NOT NULL, #팀1
-    team2 VARCHAR(50) NOT NULL, #팀2
-    match_date DATETIME NOT NULL, #경기날짜
-    stadium VARCHAR(100), #경기장소
-    price INT NOT NULL, #티켓 가격
+    game_id INT PRIMARY KEY AUTO_INCREMENT, --경기 고유 ID, 자동으로 순서대로 부여
+    sport_type VARCHAR(20) NOT NULL, --경기 종목 예: 축구, 야구, 농구
+    team1 VARCHAR(50) NOT NULL, --팀1
+    team2 VARCHAR(50) NOT NULL, --팀2
+    match_date DATETIME NOT NULL, --경기날짜
+    stadium VARCHAR(100), --경기장소
+    price INT NOT NULL --티켓 가격
 );
 
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('야구', 'KT', 'SSG', 20250708, '문학', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('야구', 'KT', 'SSG', 20250709, '문학', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('야구', 'KT', 'SSG', 20250710, '문학', '10000');
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('야구', 'KT', 'SSG', '2025-07-08 19:00:00', '문학', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('야구', 'KT', 'SSG', '2025-07-09 19:00:00', '문학', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('야구', 'KT', 'SSG', '2025-07-10 19:00:00', '문학', 10000);
 
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('야구', 'LG', '삼성', 20250704, '대구', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('야구', 'KT', 'SSG', 20250705, '대구', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('야구', 'KT', 'SSG', 20250706, '대구', '10000');
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('야구', 'LG', '삼성', '2025-07-04 19:00:00', '대구', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('야구', 'KT', 'SSG', '2025-07-05 19:00:00', '대구', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('야구', 'KT', 'SSG', '2025-07-06 19:00:00', '대구', 10000);
 
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('야구', 'KIA', '한화', 20250708, '대전', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('야구', 'KIA', '한화', 20250709, '대전', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('야구', 'KIA', '한화', 20250710, '대전', '10000');
-
-
-
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('축구', '서울', '대구', 20250808, '서울', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('축구', '서울', '안양', 20250831, '서울', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('축구', '서울', '광주', 20250927, '서울', '10000');
-
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('축구', '전북', '강원', 20250723, '전주', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('축구', '전북', '안양', 20250808, '전주', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('축구', '전북', '대구', 20250916, '전주', '10000');
-
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('축구', '울산', '대전', 20250723, '문수', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('축구', '울산', '수원FC', 20250802, '문수', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('축구', '울산', '제주', 20250809, '문수', '10000');
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('야구', 'KIA', '한화', '2025-07-08 19:00:00', '대전', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('야구', 'KIA', '한화', '2025-07-09 19:00:00', '대전', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('야구', 'KIA', '한화', '2025-07-10 19:00:00', '대전', 10000);
 
 
 
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('농구', '고양', '안양', 20250723, '고양', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('농구', '고양', '대구', 20250802, '고양', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('농구', '고양', '삼성', 20250809, '고양', '10000');
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('축구', '서울', '대구', '2025-08-08 19:00:00', '서울', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('축구', '서울', '안양', '2025-08-31 19:00:00', '서울', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('축구', '서울', '광주', '2025-09-27 19:00:00', '서울', 10000);
 
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('농구', '창원', '울산', 20250723, '창원', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('농구', '창원', '수원', 20250802, '창원', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('농구', '창원', '부산', 20250809, '창원', '10000');
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('축구', '전북', '강원', '2025-07-23 19:00:00', '전주', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('축구', '전북', '안양', '2025-08-08 19:00:00', '전주', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('축구', '전북', '대구', '2025-09-16 19:00:00', '전주', 10000);
 
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('농구', 'SK', '대구', 20250723, '잠실학생', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('농구', 'SK', '원주', 20250802, '잠실학생', '10000');
-INSERT INTO games(sport_type, team1, team2, match_date, stadium, price, available_seats) 
-VALUES('농구', 'SK', '삼성', 20250809, '잠실학생', '10000');
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('축구', '울산', '대전', '2025-07-23 19:00:00', '문수', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('축구', '울산', '수원FC', '2025-08-02 19:00:00', '문수', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('축구', '울산', '제주', '2025-08-09 19:00:00', '문수', 10000);
+
+
+
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('농구', '고양', '안양', '2025-07-23 19:00:00', '고양', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('농구', '고양', '대구', '2025-08-02 19:00:00', '고양', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('농구', '고양', '삼성', '2025-08-09 19:00:00', '고양', 10000);
+
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('농구', '창원', '울산', '2025-07-23 19:00:00', '창원', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('농구', '창원', '수원', '2025-08-02 19:00:00', '창원', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('농구', '창원', '부산', '2025-08-09 19:00:00', '창원', 10000);
+
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('농구', 'SK', '대구', '2025-07-23 19:00:00', '잠실학생', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('농구', 'SK', '원주', '2025-08-02 19:00:00', '잠실학생', 10000);
+INSERT INTO games(sport_type, team1, team2, match_date, stadium, price) 
+VALUES('농구', 'SK', '삼성', '2025-08-09 19:00:00', '잠실학생', 10000);
 
 CREATE TABLE seats (
     seat_id INT PRIMARY KEY AUTO_INCREMENT,
     game_id INT NOT NULL,
-    row VARCHAR(10), #B열 10(B10)과 같은 좌석 번호
+    seat_row VARCHAR(10), --B열 10(B10)과 같은 좌석 번호
     seat_number INT,
     is_reserved BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (game_id) REFERENCES games(game_id)
@@ -105,12 +105,12 @@ CREATE TABLE seats (
 
 CREATE TABLE seat_reserv (
     s_reserv_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
+    userID INT NOT NULL,
     seat_id INT NOT NULL,
     reservation_time DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (userID) REFERENCES users(userID),
     FOREIGN KEY (seat_id) REFERENCES seats(seat_id),
-    UNIQUE (seat_id)  # 같은 좌석 중복 예약 방지
+    UNIQUE (seat_id)  -- 같은 좌석 중복 예약 방지
 );
 
 
@@ -118,30 +118,30 @@ insert into games values(?, ?, ?, ?, ?, ?, ?, ?);
 select * from games where game_id=
 
 
-#예매 정보
+--예매 정보
 CREATE TABLE reserv_info (
-    u_reserv_id INT PRIMARY KEY AUTO_INCREMENT, #예매 고유 번호, 자동으로 순서대로 부여
-    user_id INT, #유저 고유 ID, FK
-    game_id INT, #경기 고유 ID, FK
-    seat_number VARCHAR(20), #좌석 번호
-    reserv_date DATETIME DEFAULT CURRENT_TIMESTAMP, #예매한 날짜
-    status VARCHAR(20) DEFAULT '완료', #예매 상태(완료, 취소)
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    u_reserv_id INT PRIMARY KEY AUTO_INCREMENT, --예매 고유 번호, 자동으로 순서대로 부여
+    userID INT, --유저 고유 ID, FK
+    game_id INT, --경기 고유 ID, FK
+    seat_number VARCHAR(20), --좌석 번호
+    reserv_date DATETIME DEFAULT CURRENT_TIMESTAMP, --예매한 날짜
+    status VARCHAR(20) DEFAULT '완료', --예매 상태(완료, 취소)
+    FOREIGN KEY (userID) REFERENCES users(userID),
     FOREIGN KEY (game_id) REFERENCES games(game_id)
 );
 
 
-#결제 정보
+--결제 정보
 CREATE TABLE payments (
-    payment_id INT PRIMARY KEY AUTO_INCREMENT, #결제 고유 번호
-    reserv_id INT, #예매 고유 ID, FK
-    user_id INT, #유저 고유 ID, FK
-    amount INT NOT NULL, #결제 금액
-    payment_date DATETIME DEFAULT CURRENT_TIMESTAMP, #결제 일자
-    method VARCHAR(50), #결제 방법 예: 카드, 계좌이체 등
-    status VARCHAR(20), # 예: 성공, 실패, 환불
-    FOREIGN KEY (reserv_id) REFERENCES reserv(reserv_id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+    payment_id INT PRIMARY KEY AUTO_INCREMENT, --결제 고유 번호
+    reserv_id INT, --예매 고유 ID, FK
+    userID INT, --유저 고유 ID, FK
+    amount INT NOT NULL, --결제 금액
+    payment_date DATETIME DEFAULT CURRENT_TIMESTAMP, --결제 일자
+    method VARCHAR(50), --결제 방법 예: 카드, 계좌이체 등
+    status VARCHAR(20), -- 예: 성공, 실패, 환불
+    FOREIGN KEY (reserv_id) REFERENCES reserv_info(u_reserv_id),
+    FOREIGN KEY (userID) REFERENCES users(userID)
 );
 
 
