@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpoIT</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="team.js" defer></script>
+</head>
+
+<body>
+    <!--헤더-->
+    <header class="header">
+        <div class="header-inner">
+            <!-- 로고 영역 -->
+            <h1 class="logo">
+                <a href="/">SpoIT</a> <!--나중에 로고 만들어서 이미지로 교체해야징 까먹지않기-->
+            </h1>
+
+            <!-- 메인 메뉴 영역 -->
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="#" class="active">홈</a></li>
+                    <li class="has-submenu">
+                        <a href="#" class="sports-menu" data-sport="baseball">야구</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">삼성</a></li>
+                            <li><a href="#">SSG</a></li>
+                            <li><a href="#">한화</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="sports-menu" data-sport="soccer">축구</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">서울</a></li>
+                            <li><a href="#">전북</a></li>
+                            <li><a href="#">울산</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="sports-menu" data-sport="basketball">농구</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">SK</a></li>
+                            <li><a href="#">LG</a></li>
+                            <li><a href="#">소노</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- 오른쪽 영역 (검색,로그인) -->
+            <div class="header-right">
+                <!-- 검색 영역 -->
+                <div class="search-box">
+                    <input type="text" placeholder="검색어를 입력하세요">
+                    <button type="button" class="search-btn">검색</button>
+                </div>
+
+                <!-- 로그인 영역 -->
+                <div class="login-area">
+                    <a href="#" class="login-btn">로그인</a>
+                    <a href="#" class="join-btn">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--배너-->
+    <main>
+        
+    </main>
+
+    <div class="ad-banner">
+        <a href="https://www.tukorea.ac.kr/tukorea/index.do"><img src="https://tketlink.dn.toastoven.net/tl/banner/250519_ad_stanley/250519_MiddleLineBanner_Stanley.png" alt="광고" /></a>  
+    </div>
+    <footer class="footer">
+        한국공학대학교 양로원 팀<br>
+        15073 경기도 시흥시 산기대학로 237 (정왕동) 한국공학대학교<br>
+        TEL : 031-8041-1000
+    </footer>
+</body>
+
+</html>
