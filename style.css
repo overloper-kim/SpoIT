@@ -517,35 +517,3 @@ body {
 .team-reserve-btn:hover {
   background: #b71c1c;
 }
-
-/* 5. 검색 영역 */
-.search-box {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px 8px;
-  background: #fff;
-}
-
-.search-box input {
-  border: none;
-  outline: none;
-  padding: 5px;
-  width: 160px;
-  font-size: 14px;
-  background: transparent;
-}
-
-.search-btn {
-  background: none;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  color: #666;
-  font-size: 14px;
-}
-
-.search-btn:hover {
-  color: #007bff;
-}
