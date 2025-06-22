@@ -25,37 +25,31 @@
                     <li class="has-submenu">
                         <a href="#" class="sports-menu" data-sport="baseball">야구</a>
                         <ul class="sub-menu">
-                            <li><a href="#">삼성</a></li>
-                            <li><a href="#">SSG</a></li>
-                            <li><a href="#">한화</a></li>
+                            <li><a href="team.html?team=samsung">삼성</a></li>
+                            <li><a href="team.html?team=ssg">SSG</a></li>
+                            <li><a href="team.html?team=hanwha">한화</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
                         <a href="#" class="sports-menu" data-sport="soccer">축구</a>
                         <ul class="sub-menu">
-                            <li><a href="#">서울</a></li>
-                            <li><a href="#">전북</a></li>
-                            <li><a href="#">울산</a></li>
+                            <li><a href="team.html?team=seoul">서울</a></li>
+                            <li><a href="team.html?team=jeonbuk">전북</a></li>
+                            <li><a href="team.html?team=ulsan">울산</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
                         <a href="#" class="sports-menu" data-sport="basketball">농구</a>
                         <ul class="sub-menu">
-                            <li><a href="#">SK</a></li>
-                            <li><a href="#">LG</a></li>
-                            <li><a href="#">소노</a></li>
+                            <li><a href="team.html?team=sk">SK</a></li>
+                            <li><a href="team.html?team=lg">LG</a></li>
+                            <li><a href="team.html?team=sono">소노</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
 
-            <!-- 오른쪽 영역 (검색,로그인) -->
             <div class="header-right">
-                <!-- 검색 영역 -->
-                <div class="search-box">
-                    <input type="text" placeholder="검색어를 입력하세요">
-                    <button type="button" class="search-btn">검색</button>
-                </div>
 
                 <!-- 로그인 영역 -->
                 <div class="login-area">
@@ -66,14 +60,20 @@
         </div>
     </header>
 
-    <!--배너-->
-    <main>
-        
-    </main>
 
-    <div class="ad-banner">
-        <a href="https://www.tukorea.ac.kr/tukorea/index.do"><img src="https://tketlink.dn.toastoven.net/tl/banner/250519_ad_stanley/250519_MiddleLineBanner_Stanley.png" alt="광고" /></a>  
-    </div>
+    <main>
+        <!-- 팀 배너 -->
+        <div id="team-banner">
+            <img id="team-logo" src="" alt="팀 로고" />
+            <h2 id="team-name"></h2>
+        </div>
+
+        <!-- 예매하기 메뉴 -->
+        <div id="reserve-menu-title">예매하기</div>
+
+        <!-- 경기 정보 리스트 -->
+        <div id="game-info"></div>
+    </main>
     <footer class="footer">
         한국공학대학교 양로원 팀<br>
         15073 경기도 시흥시 산기대학로 237 (정왕동) 한국공학대학교<br>

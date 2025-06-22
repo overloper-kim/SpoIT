@@ -76,40 +76,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const gameData = {
         baseball: [
             {
-                team1: {
-                    name: 'KIA',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
-                team2: {
-                    name: '한화',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_6/Hanwha(new)(1).png'
-                },
+                team1: { name: '삼성', image: 'logos/samsung.png' },
+                team2: { name: 'SSG', image: 'logos/ssg.png' },
                 datetime: '2025.06.06 (금) 17:00',
-                location: 'KIA 챔피언스필드',
+                location: '대구삼성라이온즈파크',
                 reserveTime: '2025.05.30 (금) 11:00 오픈예정'
             },
             {
-                team1: {
-                    name: '삼성',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
-                team2: {
-                    name: 'LG',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
+                team1: { name: '한화', image: 'logos/hanwha.png' },
+                team2: { name: '삼성', image: 'logos/samsung.png' },
                 datetime: '2025.06.08 (일) 14:00',
-                location: '대구삼성라이온즈파크',
+                location: '대전한화생명이글스파크',
                 reserveTime: '2025.06.01 (일) 11:00 오픈예정'
             },
             {
-                team1: {
-                    name: 'SSG',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
-                team2: {
-                    name: '두산',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
+                team1: { name: 'SSG', image: 'logos/ssg.png' },
+                team2: { name: '한화', image: 'logos/hanwha.png' },
                 datetime: '2025.06.10 (화) 18:30',
                 location: '인천SSG랜더스필드',
                 reserveTime: '2025.06.03 (화) 11:00 오픈예정'
@@ -117,83 +99,47 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
         soccer: [
             {
-                team1: {
-                    name: 'FC서울',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
-                team2: {
-                    name: '전북현대',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
+                team1: { name: '서울', image: 'logos/seoul.png' },
+                team2: { name: '전북', image: 'logos/jeonbuk.png' },
                 datetime: '2025.06.07 (토) 19:00',
                 location: '서울월드컵경기장',
                 reserveTime: '2025.05.31 (토) 11:00 오픈예정'
             },
             {
-                team1: {
-                    name: '울산현대',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
-                team2: {
-                    name: '포항스틸러스',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
+                team1: { name: '울산', image: 'logos/ulsan.png' },
+                team2: { name: '서울', image: 'logos/seoul.png' },
                 datetime: '2025.06.09 (월) 20:00',
                 location: '울산문수축구경기장',
                 reserveTime: '2025.06.02 (월) 11:00 오픈예정'
             },
             {
-                team1: {
-                    name: '수원삼성',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
-                team2: {
-                    name: '인천유나이티드',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
+                team1: { name: '전북', image: 'logos/jeonbuk.png' },
+                team2: { name: '울산', image: 'logos/ulsan.png' },
                 datetime: '2025.06.11 (수) 19:30',
-                location: '수원월드컵경기장',
+                location: '전주월드컵경기장',
                 reserveTime: '2025.06.04 (수) 11:00 오픈예정'
             }
         ],
         basketball: [
             {
-                team1: {
-                    name: '서울SK',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
-                team2: {
-                    name: '서울삼성',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
+                team1: { name: 'SK', image: 'logos/sk.png' },
+                team2: { name: 'LG', image: 'logos/lg.png' },
                 datetime: '2025.06.07 (토) 17:00',
                 location: '잠실실내체육관',
                 reserveTime: '2025.05.31 (토) 11:00 오픈예정'
             },
             {
-                team1: {
-                    name: '부산KCC',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
-                team2: {
-                    name: '울산현대모비스',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
+                team1: { name: '소노', image: 'logos/sono.png' },
+                team2: { name: 'SK', image: 'logos/sk.png' },
                 datetime: '2025.06.09 (월) 19:00',
-                location: '부산사직체육관',
+                location: '고양체육관',
                 reserveTime: '2025.06.02 (월) 11:00 오픈예정'
             },
             {
-                team1: {
-                    name: '원주DB',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
-                team2: {
-                    name: '안양KGC',
-                    image: 'http://image.toast.com/aaaaab/ticketlink/TKL_8/Baseball_kia(1).png'
-                },
+                team1: { name: 'LG', image: 'logos/lg.png' },
+                team2: { name: '소노', image: 'logos/sono.png' },
                 datetime: '2025.06.11 (수) 19:30',
-                location: '원주체육관',
+                location: '창원실내체육관',
                 reserveTime: '2025.06.04 (수) 11:00 오픈예정'
             }
         ]
@@ -222,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
             gameList.appendChild(gameCard);
-        });
+        }); 
     }
 
     // 카테고리 버튼 클릭 이벤트

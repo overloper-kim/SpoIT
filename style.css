@@ -29,7 +29,6 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  min-width: 890px;
   overflow: visible;
 }
 
@@ -76,46 +75,6 @@ body {
   background-color: #f8f9fa;
 }
 
-/* 4. 헤더 우측 영역 */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* 5. 검색 영역 */
-.search-box {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px 8px;
-  background: #fff;
-}
-
-.search-box input {
-  border: none;
-  outline: none;
-  padding: 5px;
-  width: 160px;
-  font-size: 14px;
-  background: transparent;
-}
-
-.search-btn {
-  background: none;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  color: #666;
-  font-size: 14px;
-}
-
-.search-btn:hover {
-  color: #007bff;
-}
-
-/* 서브메뉴 스타일 */
 .has-submenu {
   position: relative;
 }
@@ -145,14 +104,12 @@ body {
   box-sizing: content-box;
 }
 
-/* 마우스 호버 시 서브메뉴 표시 및 애니메이션 */
 .has-submenu:hover .sub-menu {
   display: flex; /* 호버 시 Flexbox로 표시 */
   opacity: 1;
   transform: translateX(-50%) translateY(0); /* 최종 위치 */
   pointer-events: auto; /* 호버 시 이벤트 활성화 */
 }
-
 
 .sub-menu li {
   list-style: none; /* 불릿 포인트 제거 */
@@ -173,6 +130,13 @@ body {
 .sub-menu a:hover {
   background-color: #f8f9fa;
   color: #007bff;
+}
+
+/* 4. 헤더 우측 영역 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 /* 6. 로그인 영역 */
@@ -463,4 +427,125 @@ body {
   line-height: 1.5;
   letter-spacing: 1px;
   border-top: 1px solid #000;
+}
+
+#team-banner {
+  background: #005BAC;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 0 28px 0;
+  border-radius: 0 0 24px 24px;
+  margin-bottom: 18px;
+}
+#team-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+#team-name {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+#reserve-menu-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 24px 0 18px 0;
+  padding-left: 12px;
+  border-left: 4px solid #005BAC;
+  color: #222;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+#game-info {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.team-game-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+.team-game-date {
+  font-weight: bold;
+  width: 70px;
+}
+.team-game-teams {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.team-game-team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.team-game-vs {
+  font-weight: bold;
+  margin: 0 6px;
+}
+.team-game-location {
+  color: #666;
+  font-size: 0.95rem;
+  width: 110px;
+  text-align: center;
+}
+.team-reserve-btn {
+  background: #E61A23;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.team-reserve-btn:hover {
+  background: #b71c1c;
+}
+
+/* 5. 검색 영역 */
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px 8px;
+  background: #fff;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  width: 160px;
+  font-size: 14px;
+  background: transparent;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #666;
+  font-size: 14px;
+}
+
+.search-btn:hover {
+  color: #007bff;
 }
