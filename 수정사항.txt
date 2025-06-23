@@ -1,0 +1,2 @@
+Database
+user 테이블이랑 seat_reserv, reseriv_info 의 user_id의 타입이 다름

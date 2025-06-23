@@ -119,7 +119,7 @@ select * from games where game_id=
 
 
 --예매 정보
-CREATE TABLE reserv_info (
+CREATE  TABLE reserv_info (
     u_reserv_id INT PRIMARY KEY AUTO_INCREMENT, --예매 고유 번호, 자동으로 순서대로 부여
     userID INT, --유저 고유 ID, FK
     game_id INT, --경기 고유 ID, FK

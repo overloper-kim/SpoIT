@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.0-SNAPSHOT'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'war'
 }
 
 group = 'com.example'
@@ -13,6 +14,10 @@ java {
 	}
 }
 
+// 인코딩 설정
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -21,13 +26,18 @@ configurations {
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
+	maven { url = uri("https://repo.spring.io/milestone") }
+	maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'jakarta.servlet:jakarta.servlet-api'
+	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+	implementation 'com.h2database:h2'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
