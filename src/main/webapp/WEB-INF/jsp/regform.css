@@ -1,20 +1,117 @@
+/* 전체 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* 제목 */
 h2 {
-	border-radius: 5px;
-	background-color: wheat;
-	text-align: center;
-	padding: 15px 0;
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: #222;
 }
 
+/* 폼 컨테이너 */
 #regform {
-	padding: 15px 20px;
-	border-radius: 10px;
-	margin: auto;
-	width: 50%;
-	background-color: SandyBrown;
+  width: 100%;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
+/* 폼 요소 */
+form label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* 에러 메시지 */
 .error {
-	color: red;
-	font-size: 0.8em;
-	display: none;
-} 
+  font-size: 0.9rem;
+  color: red;
+  margin-top: 6px;
+  display: block;
+}
+
+/* 제출 버튼 */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* JSTL 오류 메시지 */
+#regform p {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#regform label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 2px; /* 입력창과 너무 떨어지지 않도록 */
+  color: #333;
+}
+
+#regform input[type="text"],
+#regform input[type="password"],
+#regform input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 12px; /* 라벨 간 간격 */
+}
+
+/* 에러 메시지도 라벨과 잘 정렬되도록 */
+#regform .error {
+  margin-top: -8px;
+  margin-bottom: 8px;
+  color: red;
+  font-size: 0.9rem;
+}
