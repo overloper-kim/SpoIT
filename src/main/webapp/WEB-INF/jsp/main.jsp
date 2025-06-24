@@ -45,13 +45,13 @@
             <div class="category">
                 <ul class="category-list">
                     <li class="category-item">
-                        <a href="#" class="active">야구</a>
+                        <a href="src\main\webapp\WEB-INF\jsp\gameList.jsp" class="active">야구</a>
                     </li>
                     <li class="category-item">
-                        <a href="#">축구</a>
+                        <a href="src\main\webapp\WEB-INF\jsp\gameList.jsp">축구</a>
                     </li>
                     <li class="category-item">
-                        <a href="#">농구</a>
+                        <a href="src\main\webapp\WEB-INF\jsp\gameList.jsp">농구</a>
                     </li>
                 </ul>
             </div>
