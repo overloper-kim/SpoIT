@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <title>나의 예매 내역</title>
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="./myReservations.css">
 </head>
 <body>
     <div class="container">

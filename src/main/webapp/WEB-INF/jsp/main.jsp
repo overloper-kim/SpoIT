@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <!--배너-->
     <section class="banner">
         <div class="slide active">
