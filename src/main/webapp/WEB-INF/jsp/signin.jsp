@@ -7,10 +7,539 @@
 <meta charset="UTF-8">
 <title>회원 가입 폼 만들기 예제</title>
 <link rel="stylesheet" href="/css/regform.css">
-<link rel="stylesheet" href="/css/header.css">
-<link rel="stylesheet" href="/css/footer.css">
+
 <script src="/js/regform.js"></script>
 <script src="/script.js" defer></script>
+<style>
+	/* 전체 기본 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* 1. 헤더 스타일 */
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 9998;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  overflow: visible;
+}
+
+/* 2. 로고 스타일 */
+.logo {
+  flex-shrink: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+/* 3. 메인 메뉴 스타일 */
+.main-menu {
+  margin: 0 20px;
+  overflow: visible;
+}
+
+.main-menu ul {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: visible;
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.main-menu a:hover,
+.main-menu a.active {
+  color: #007bff;
+  background-color: #f8f9fa;
+}
+
+.has-submenu {
+  position: relative;
+}
+
+.sub-menu {
+  display: none; /* 기본적으로 숨김 */
+  flex-direction: row; /* 가로 정렬 */
+  flex-wrap: nowrap; /* 줄바꿈 방지 */
+  justify-content: center; /* 가운데 정렬 */
+  align-items: center; /* 세로 가운데 정렬 */
+  padding: 10px 0; /* 내부 여백 */
+  position: absolute;
+  top: 100%;
+  left: 50%; /* 부모 요소 기준 50% */
+  transform: translateX(-50%) translateY(-10px); /* 가운데 정렬 및 애니메이션 시작 위치 */
+  background-color: #ffffff;
+  width: max-content; /* 내용물에 맞춰 너비 확장 */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2), 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 9999; /* 배너 위에 표시 */
+  border-radius: 4px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  pointer-events: none; /* 초기에는 이벤트 차단 (hover 시 활성화) */
+  white-space: nowrap; /* 내용 전체 줄바꿈 방지 */
+  box-sizing: content-box;
+}
+
+.has-submenu:hover .sub-menu {
+  display: flex; /* 호버 시 Flexbox로 표시 */
+  opacity: 1;
+  transform: translateX(-50%) translateY(0); /* 최종 위치 */
+  pointer-events: auto; /* 호버 시 이벤트 활성화 */
+}
+
+.sub-menu li {
+  list-style: none; /* 불릿 포인트 제거 */
+  margin: 0 10px; /* 항목 간 간격 */
+  flex: 0 0 auto; /* 줄어들거나 늘어나지 않음 */
+}
+
+.sub-menu a {
+  display: block; /* 링크 영역 전체 클릭 가능 */
+  padding: 8px 12px; /* 패딩 조정 */
+  font-size: 0.9em;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.sub-menu a:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+/* 4. 헤더 우측 영역 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 6. 로그인 영역 */
+.login-area {
+  display: flex;
+  gap: 8px;
+}
+
+.login-btn,
+.my-page-btn,
+.join-btn {
+  text-decoration: none;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.login-btn {
+  color: #007bff;
+  border: 1px solid #007bff;
+  background: #fff;
+}
+
+.my-page-btn {
+  color: #57ff54;
+  border: 1px solid #57ff54;
+  background: #fff;
+}
+
+.join-btn {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.login-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.join-btn:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* 메인 콘텐츠 컨테이너 */
+.content-container {
+  max-width: 940px; /* (경기정보 300px * 3) + (간격 20px * 2) */
+  margin: 0 auto;
+}
+
+/* 경기 목록 스타일 */
+.game-list {
+  display: flex; 
+  gap: 20px; /* 카드 사이의 간격 */
+  padding: 20px 0; /* 위아래 여백 */
+  overflow-x: auto; /* 내용이 넘칠 경우 가로 스크롤 */
+  list-style: none; /* 리스트 기본 스타일 제거 */
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+}
+
+/* 개별 경기 카드 스타일 */
+.game-card {
+  flex-shrink: 0; /* 카드가 줄어들지 않도록 설정 */
+  width: 300px; /* 카드의 너비 고정 */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.game-card .teams {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.game-card .teams img {
+  width: 80px;
+  height: 80px;
+}
+
+.game-card .teams span {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.game-card .info p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.game-card .reservation {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.game-card .reserve-time {
+  font-weight: bold;
+  color: #d9534f;
+}
+
+/* 배너 영역 스타일 */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 배너 인디케이터 스타일 */
+.banner-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.indicator.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* 배너 이전/다음 버튼 스타일 */
+.banner-prev,
+.banner-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-prev {
+  left: 20px;
+}
+
+.banner-next {
+  right: 20px;
+}
+
+.banner-prev:hover,
+.banner-next:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* 배너 인디케이터 번호 스타일 */
+.banner-indicator-number {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+/* 카테고리 스타일 */
+.category {
+  padding: 20px 0; /* 위아래 패딩만 설정 */
+}
+
+.category-list {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.category-item {
+  position: relative;
+}
+
+.category-item a {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background-color: white;
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.category-item a:hover {
+  background-color: #f5f5f5;
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.category-item a.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* 예매오픈 제목 스타일 */
+.ticket-open-title {
+  margin: 40px 0 20px; /* 위아래 마진만 설정 */
+  padding: 0; /* 기존 패딩 제거 */
+}
+
+.ticket-open-title h2 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+/* 광고 배너 스타일 */
+.ad-banner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.ad-banner img {
+  width: 100%;
+}
+
+/* 푸터 스타일 */
+.footer {
+  background-color: #e8e8e8;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  bottom: 0;
+  z-index: 1000;
+  padding: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  border-top: 1px solid #000;
+  position: fixed;
+  width: 100%;
+}
+
+#team-banner {
+  background: #005BAC;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 0 28px 0;
+  border-radius: 0 0 24px 24px;
+  margin-bottom: 18px;
+}
+#team-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+#team-name {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+#reserve-menu-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 24px 0 18px 0;
+  padding-left: 12px;
+  border-left: 4px solid #005BAC;
+  color: #222;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+#game-info {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.team-game-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+.team-game-date {
+  font-weight: bold;
+  width: 70px;
+}
+.team-game-teams {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.team-game-team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.team-game-vs {
+  font-weight: bold;
+  margin: 0 6px;
+}
+.team-game-location {
+  color: #666;
+  font-size: 0.95rem;
+  width: 110px;
+  text-align: center;
+}
+.team-reserve-btn {
+  background: #E61A23;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.team-reserve-btn:hover {
+  background: #b71c1c;
+}
+</style>
 </head>
 <body>
 	<h2>회원 가입</h2>

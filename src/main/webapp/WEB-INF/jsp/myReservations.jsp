@@ -7,14 +7,23 @@
 <head>
     <meta charset="UTF-8">
     <title>나의 예매 내역</title>
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="./myReservations.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="myReservations.css">
+    <style>
+        .reservations-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 50px 0px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>나의 예매 내역</h1>
+    <div class="reservations-container">
+        <h1 class="reservations-title">나의 예매 내역</h1>
         <c:if test="${not empty reservList}">
-            <table border="1" style="width:100%;text-align:center;">
+            <table class="reservations-table" border="1" style="width:70%;text-align:center;">
                 <thead>
                     <tr>
                         <th>예매번호</th>
@@ -41,7 +50,7 @@
             <p>예매 내역이 없습니다.</p>
         </c:if>
         <br/>
-        <a href="/" class="btn">메인으로</a>
+        <a href="/" class="cancel-btn">메인으로</a>
     </div>
     <%@ include file="footer.jsp" %>
 </body>

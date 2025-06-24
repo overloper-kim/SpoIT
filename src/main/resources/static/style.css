@@ -434,6 +434,8 @@ body {
   line-height: 1.5;
   letter-spacing: 1px;
   border-top: 1px solid #000;
+  position: fixed;
+  width: 100%;
 }
 
 #team-banner {

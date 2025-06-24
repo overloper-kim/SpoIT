@@ -16,15 +16,18 @@ public class ReservInfoController {
 
     // 예매 처리 (POST)
     @PostMapping("/reservations/{gameId}")
-    public String reserveGame(@PathVariable int gameId, HttpSession session, Model model) {
+    public String reserveGame(@PathVariable int gameId, @RequestParam("seat") String seat, HttpSession session, Model model) {
         Object userObj = session.getAttribute("user");
         if (userObj == null) {
             return "redirect:/user/login";
         }
+        if (seat == null || seat.isEmpty()) {
+            model.addAttribute("error", "좌석을 선택해주세요.");
+            return "gameDetail";
+        }
         User user = (User) userObj;
         try {
-            // 좌석 번호는 간단히 "A1"로 고정(좌석 선택 기능 미구현)
-            reservInfoDAO.insertReservation(user.getUserID(), gameId, "A1");
+            reservInfoDAO.insertReservation(user.getUserID(), gameId, seat);
             model.addAttribute("msg", "예매가 완료되었습니다.");
         } catch (SQLException e) {
             model.addAttribute("msg", "예매 중 오류가 발생했습니다: " + e.getMessage());

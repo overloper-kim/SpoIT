@@ -94,6 +94,12 @@
         }
         .reserve-btn:hover {
             background: #0056b3;
+        }
+        .seat.selected {
+            background: #ff9800 !important;
+            color: #fff !important;
+            border: 2px solid #e65100 !important;
+            font-weight: bold;
         } 
     </style>
 </head>
@@ -126,51 +132,50 @@
                 <div class="info-value price">₩${game.price}원</div>
             </div>
 
-            <div class="seat-map">
-                <!-- 5x5 좌석 배치 예시 -->
-                <div class="seat-row">
-                    <label class="seat"><input type="radio" name="seat" value="A1">A1</label>
-                    <label class="seat"><input type="radio" name="seat" value="A2">A2</label>
-                    <label class="seat"><input type="radio" name="seat" value="A3">A3</label>
-                    <label class="seat"><input type="radio" name="seat" value="A4">A4</label>
-                    <label class="seat"><input type="radio" name="seat" value="A5">A5</label>
-                </div>
-                <div class="seat-row">
-                    <label class="seat"><input type="radio" name="seat" value="B1">B1</label>
-                    <label class="seat"><input type="radio" name="seat" value="B2">B2</label>
-                    <label class="seat"><input type="radio" name="seat" value="B3">B3</label>
-                    <label class="seat"><input type="radio" name="seat" value="B4">B4</label>
-                    <label class="seat"><input type="radio" name="seat" value="B5">B5</label>
-                </div>
-                <div class="seat-row">
-                    <label class="seat"><input type="radio" name="seat" value="C1">C1</label>
-                    <label class="seat"><input type="radio" name="seat" value="C2">C2</label>
-                    <label class="seat"><input type="radio" name="seat" value="C3">C3</label>
-                    <label class="seat"><input type="radio" name="seat" value="C4">C4</label>
-                    <label class="seat"><input type="radio" name="seat" value="C5">C5</label>
-                </div>
-                <div class="seat-row">
-                    <label class="seat"><input type="radio" name="seat" value="D1">D1</label>
-                    <label class="seat"><input type="radio" name="seat" value="D2">D2</label>
-                    <label class="seat"><input type="radio" name="seat" value="D3">D3</label>
-                    <label class="seat"><input type="radio" name="seat" value="D4">D4</label>
-                    <label class="seat"><input type="radio" name="seat" value="D5">D5</label>
-                </div>
-                <div class="seat-row">
-                    <label class="seat"><input type="radio" name="seat" value="E1">E1</label>
-                    <label class="seat"><input type="radio" name="seat" value="E2">E2</label>
-                    <label class="seat"><input type="radio" name="seat" value="E3">E3</label>
-                    <label class="seat"><input type="radio" name="seat" value="E4">E4</label>
-                    <label class="seat"><input type="radio" name="seat" value="E5">E5</label>
-                </div>
-            </div>
-            
             <div class="actions">
                 <c:if test="${empty sessionScope.user}">
                     <a href="/user/login" class="btn">로그인 후 예매하기</a>
                 </c:if>
                 <c:if test="${not empty sessionScope.user}">
                     <form method="post" action="/reservations/${game.gameId}">
+                        <div class="seat-map">
+                            <!-- 5x5 좌석 배치 예시 -->
+                            <div class="seat-row">
+                                <label class="seat"><input type="radio" name="seat" value="A1">A1</label>
+                                <label class="seat"><input type="radio" name="seat" value="A2">A2</label>
+                                <label class="seat"><input type="radio" name="seat" value="A3">A3</label>
+                                <label class="seat"><input type="radio" name="seat" value="A4">A4</label>
+                                <label class="seat"><input type="radio" name="seat" value="A5">A5</label>
+                            </div>
+                            <div class="seat-row">
+                                <label class="seat"><input type="radio" name="seat" value="B1">B1</label>
+                                <label class="seat"><input type="radio" name="seat" value="B2">B2</label>
+                                <label class="seat"><input type="radio" name="seat" value="B3">B3</label>
+                                <label class="seat"><input type="radio" name="seat" value="B4">B4</label>
+                                <label class="seat"><input type="radio" name="seat" value="B5">B5</label>
+                            </div>
+                            <div class="seat-row">
+                                <label class="seat"><input type="radio" name="seat" value="C1">C1</label>
+                                <label class="seat"><input type="radio" name="seat" value="C2">C2</label>
+                                <label class="seat"><input type="radio" name="seat" value="C3">C3</label>
+                                <label class="seat"><input type="radio" name="seat" value="C4">C4</label>
+                                <label class="seat"><input type="radio" name="seat" value="C5">C5</label>
+                            </div>
+                            <div class="seat-row">
+                                <label class="seat"><input type="radio" name="seat" value="D1">D1</label>
+                                <label class="seat"><input type="radio" name="seat" value="D2">D2</label>
+                                <label class="seat"><input type="radio" name="seat" value="D3">D3</label>
+                                <label class="seat"><input type="radio" name="seat" value="D4">D4</label>
+                                <label class="seat"><input type="radio" name="seat" value="D5">D5</label>
+                            </div>
+                            <div class="seat-row">
+                                <label class="seat"><input type="radio" name="seat" value="E1">E1</label>
+                                <label class="seat"><input type="radio" name="seat" value="E2">E2</label>
+                                <label class="seat"><input type="radio" name="seat" value="E3">E3</label>
+                                <label class="seat"><input type="radio" name="seat" value="E4">E4</label>
+                                <label class="seat"><input type="radio" name="seat" value="E5">E5</label>
+                            </div>
+                        </div>
                         <button type="submit" class="btn">예매하기</button>
                     </form>
                 </c:if>
@@ -179,5 +184,21 @@
         </div>
     </div>
     <%@ include file="footer.jsp" %>
+    <script>
+    // 좌석 선택 시 색상 변경 (선택된 label에 .selected 클래스 부여)
+    document.addEventListener('DOMContentLoaded', function() {
+        const seatRadios = document.querySelectorAll('.seat input[type="radio"]');
+        seatRadios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.seat').forEach(function(label) {
+                    label.classList.remove('selected');
+                });
+                if (radio.checked) {
+                    radio.parentElement.classList.add('selected');
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html> 

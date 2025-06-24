@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const gameData = {
         baseball: [
             {
-                team1: { name: '삼성', image: 'logos/samsung.png' },
+                team1: { name: '삼성', },
                 team2: { name: 'SSG', image: 'logos/ssg.png' },
                 datetime: '2025.06.06 (금) 17:00',
                 location: '대구삼성라이온즈파크',
@@ -155,9 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
             gameCard.className = 'game-card';
             gameCard.innerHTML = `
                 <div class="teams">
-                    <img src="${game.team1.image}" alt="${game.team1.name}" />
+                    <p>${game.team1.name}</p>
                     <span>vs</span>
-                    <img src="${game.team2.image}" alt="${game.team2.name}" />
+                    <p>${game.team2.name}</p>
                 </div>
                 <div class="info">
                     <p class="datetime">${game.datetime}</p>
