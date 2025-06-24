@@ -146,6 +146,7 @@ body {
 }
 
 .login-btn,
+.my-page-btn,
 .join-btn {
   text-decoration: none;
   padding: 5px 15px;
@@ -158,6 +159,12 @@ body {
 .login-btn {
   color: #007bff;
   border: 1px solid #007bff;
+  background: #fff;
+}
+
+.my-page-btn {
+  color: #57ff54;
+  border: 1px solid #57ff54;
   background: #fff;
 }
 

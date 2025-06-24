@@ -29,6 +29,7 @@
             <div class="login-area">
                 <a href="/user/login" class="login-btn">로그인</a>
                 <a href="/user/signin" class="join-btn">회원가입</a>
+                <a href="/reservations" class="my-page-btn">마이 페이지</a>
             </div>
         </div>
     </div>
